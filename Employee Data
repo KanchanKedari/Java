@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class Employee {
+	//instance variable
+	private int empId;
+	private String empName;
+	private double empSalary;
+	private double pf,hra,ta,gs;
+	
+	public void inputData() {
+		//int x; (local variable)
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Employee Id = ");
+		empId = sc.nextInt();
+		System.out.println("Enter Employee Name = ");
+		empName = sc.next();
+		System.out.println("Enter Employee Salary = ");
+		empSalary = sc.nextDouble();
+	}
+	public void calculate() {
+		pf = empSalary*0.6;
+		hra = empSalary*0.5;
+		ta = empSalary*0.5;
+		gs = pf+hra+ta+empSalary;
+		
+	}
+	public void display() {
+		System.out.println("--------------------------------------------------------------------");
+		System.out.println("empId\tempName\tempSalary\tpf\thra\tta\tgs");
+		System.out.println("--------------------------------------------------------------------");
+		System.out.println(" "+empId+ " "+empName+ " "+empSalary+ " "+pf+ " "+hra+ " "+ta+ " "+gs);
+	}
+	
+
+}
+public class EmployeeMain {
+
+	public static void main(String[] args) {
+		Employee eobj = new Employee();
+		eobj.inputData();
+		eobj.calculate();
+		eobj.display();
+		
+		
+
+	}
+
+}
