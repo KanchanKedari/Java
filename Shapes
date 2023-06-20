@@ -1,0 +1,97 @@
+public class Shapes {
+	public void circle(float r) {                           //circle class
+		float acircle = 3.14f*r*r;
+		System.out.println("The area of the Circle is = "+acircle);
+		float pcircle = 2*3.14f*r;
+		System.out.println("The perimeter of a circle is ="+pcircle);
+	}
+	
+	public void triangle(float ht, float base) {                  //triangle class
+		float atri = 0.5f*ht*base;
+		System.out.println("The area of the triangle = "+atri);
+		float ptri = 3*base;
+		System.out.println("The perimeter of triangle = "+ptri);
+		
+		
+	}
+
+	public void rec(float lt,float bt) {                                //rectangle class
+		float arec = lt*bt;
+		System.out.println("The area of the rectangle = "+arec);
+		float prec =( 2*lt )+ (2*bt);
+		System.out.println("The perimeter of triangle = "+prec);
+		
+		
+	}
+
+	public void square(float a) {                                        // square class
+		float asq = a*a;
+		System.out.println("The area of the rectangle = "+asq);
+		float psq = 4*a;
+		System.out.println("The perimeter of triangle = "+psq);
+		
+		
+	}
+  import java.util.*;
+public class shapesMain {
+
+	public static void main(String[] args) {
+		int ch =0;
+		
+		Scanner sc = new Scanner(System.in);
+		Shapes s = new Shapes();
+		do {
+
+		System.out.println("---------------------MENU----------------------------");
+		System.out.println("1.circle\n2.triangle\n3.rectangle\n4.square");
+		System.out.println("-----------------------------------------------------");
+		System.out.println("Enter your choice = ");
+		ch = sc.nextInt();
+		
+		switch(ch) {                                  
+		case 1:
+
+			System.out.println("Enter radius for circle = ");
+			float r = sc.nextFloat() ;
+			s.circle(r);
+			break;
+		
+		case 2:
+			System.out.println("Enter height of a triangle  = ");
+			float ht = sc.nextFloat();
+			System.out.println("Enter base of triangle  = ");
+			float base = sc.nextFloat();
+			s.triangle(ht,base);
+			break;
+		
+		case 3:
+			System.out.println("Enter length for rectangle = ");
+			float lt = sc.nextFloat();
+			System.out.println("Enter breadth for rectangle = ");
+			float bt = sc.nextFloat();
+			s.rec(lt,bt);
+			break;
+			
+		case 4:
+			System.out.println("Enter side of a square  = ");
+			float a = sc.nextFloat();
+			s.square(a);
+			break;
+	
+			
+		}
+		System.out.println("-----------------------------------------------------");
+		System.out.println("Do you want to continue press 1 = ");
+		ch = sc.nextInt();
+		
+		
+	}while(ch==1);
+		System.out.println("----------------THANKS-------------------------------");
+	}
+	
+	
+
+}
+
+	
+}
