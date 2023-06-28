@@ -1,0 +1,46 @@
+public class Account {
+	private int accNum;
+	private String accName;
+	private double accBal;
+	public Account(int accNum, String accName, double accBal) {
+		super();
+		this.accNum = accNum;
+		this.accName = accName;
+		this.accBal = accBal;
+	}
+	public int getAccNum() {
+		return accNum;
+	}
+	public void setAccNum(int accNum) {
+		this.accNum = accNum;
+	}
+	public String getAccName() {
+		return accName;
+	}
+	public void setAccName(String accName) {
+		this.accName = accName;
+	}
+	public double getAccBal() {
+		return accBal;
+	}
+	public void setAccBal(double accBal) {
+		this.accBal = accBal;
+	}
+	
+}
+import java.util.*;
+public class AccountMain {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter account number,Customer Name,account balance");
+		Account aobj = new Account(sc.nextInt(), sc.next(), sc.nextDouble());
+		System.out.println("Account number = "+aobj.getAccNum());
+		System.out.println("Customer Name = "+aobj.getAccName());
+		System.out.println("Account Balance = "+aobj.getAccBal());
+
+	}
+	
+
+}
+
