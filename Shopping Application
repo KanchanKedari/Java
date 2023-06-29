@@ -151,7 +151,7 @@ public class shopInfo {
 		System.out.println("-------------PRODUCT-------------------------");
 		System.out.println("prodName = "+cust.getProd().getProdName());
 		System.out.println("prodQty = "+cust.getProd().getProdQty());
-		System.out.println("prodrice = "+cust.getProd().getProdPrice());
+		System.out.println("prodPrice = "+cust.getProd().getProdPrice());
 		System.out.println("---------------------------------------------");
 		
 	}
