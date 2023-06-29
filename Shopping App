@@ -1,0 +1,278 @@
+public class Address {
+	private String city;
+	private String state;
+	private int pincode;
+	public Address(String city, String state, int pincode) {
+		super();
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public int getPincode() {
+		return pincode;
+	}
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+
+}
+public class Customer {
+	private int custId;
+	private String custName;
+	private String mobNo;
+	
+	private product prod[]; // product array
+	private Address addr;
+	
+	public Customer(int custId, String custName, String mobNo, product prod[], Address addr) {
+		super();
+		this.custId = custId;
+		this.custName = custName;
+		this.mobNo = mobNo;
+		this.prod = prod;
+		this.addr = addr;
+	}
+	public int getCustId() {
+		return custId;
+	}
+	public void setCustId(int custId) {
+		this.custId = custId;
+	}
+	public String getCustName() {
+		return custName;
+	}
+	public void setCustName(String custName) {
+		this.custName = custName;
+	}
+	public String getMobNo() {
+		return mobNo;
+	}
+	public void setMobNo(String mobNo) {
+		this.mobNo = mobNo;
+	}
+	public product[] getProd() {
+		return prod;
+	}
+	public void setProd(product prod[]) {
+		this.prod = prod;
+	}
+	public Address getAddr() {
+		return addr;
+	}
+	public void setAddr(Address addr) {
+		this.addr = addr;
+	}
+	
+
+}
+public class product {
+	private int prodId;
+	private String prodName;
+	private double prodPrice;
+	private int prodQty;
+	public product(int prodId, String prodName, double prodPrice, int prodQty) {
+		super();
+		this.prodId = prodId;
+		this.prodName = prodName;
+		this.prodPrice = prodPrice;
+		this.prodQty = prodQty;
+	}
+	public int getProdId() {
+		return prodId;
+	}
+	public void setProdId(int prodId) {
+		this.prodId = prodId;
+	}
+	public String getProdName() {
+		return prodName;
+	}
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+	public double getProdPrice() {
+		return prodPrice;
+	}
+	public void setProdPrice(double prodPrice) {
+		this.prodPrice = prodPrice;
+	}
+	public int getProdQty() {
+		return prodQty;
+	}
+	public void setProdQty(int prodQty) {
+		this.prodQty = prodQty;
+	}
+	
+
+}
+import java.util.Date;
+
+public class Bill {
+	private int billNo;
+	private Date dateobj;
+	private double cgst;
+	private double sgst;
+	private double finaltotal;
+	public Bill(int billNo, Date dateobj, double cgst, double sgst, double finaltotal) {
+		super();
+		this.billNo = billNo;
+		this.dateobj = dateobj;
+		this.cgst = cgst;
+		this.sgst = sgst;
+		this.finaltotal = finaltotal;
+	}
+	public int getBillNo() {
+		return billNo;
+	}
+	public void setBillNo(int billNo) {
+		this.billNo = billNo;
+	}
+	public Date getDateobj() {
+		return dateobj;
+	}
+	public void setDateobj(Date dateobj) {
+		this.dateobj = dateobj;
+	}
+	public double getCgst() {
+		return cgst;
+	}
+	public void setCgst(double cgst) {
+		this.cgst = cgst;
+	}
+	public double getSgst() {
+		return sgst;
+	}
+	public void setSgst(double sgst) {
+		this.sgst = sgst;
+	}
+	public double getFinaltotal() {
+		return finaltotal;
+	}
+	public void setFinaltotal(double finaltotal) {
+		this.finaltotal = finaltotal;
+	}
+	
+
+}
+public class ShopInfo {
+	
+	public Customer create() {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Enter Cust Id:");
+		int custId = sc.nextInt();
+		System.out.println("Enter custmer name :  ");
+		String custname = sc.next();
+		System.out.println("Enter ph number : ");
+		String mob = sc.next();
+		
+		
+		System.out.println("Enter city :" );
+		String city = sc.next();
+		System.out.println("Enter State : ");
+		String state = sc.next();
+		System.out.println("Enter Pincode :");
+		String pincode = sc.next();
+		
+		
+		
+		
+		Address addr = new Address(city, state, custId);
+		
+		System.out.println("Enter number of  products: ");
+		int size = sc.nextInt(); //enter the number of products
+		product prodarr[] = new product[size];
+	
+		for(int i=0;i<prodarr.length;i++)
+		{
+		
+		System.out.println("Enter product Id :");
+		int prodId = sc.nextInt();
+		System.out.println("Enter Product name : ");
+		String productname = sc.next();
+		System.out.println("Enter Product price : ");
+		Double prodprice = sc.nextDouble();
+		System.out.println("Enter product quantity : ");
+		int pqty = sc.nextInt();
+		product prod = new product(prodId, productname, prodprice, pqty);
+		prodarr[i] = prod;
+		
+		}
+		Customer cust = new Customer(custId, custname, mob, prodarr, addr);
+		return cust;
+		
+	}
+	public void display(Customer cust,Bill billobj) {
+		System.out.println("CustId : "+cust.getCustId());
+		System.out.println("Cust Name :" +cust.getCustName());
+		System.out.println("mobile number : "+cust.getMobNo());
+		
+		System.out.println("------------ADDRESS-----------------");
+		System.out.println("city :"+cust.getAddr().getCity());
+		System.out.println("state : "+cust.getAddr().getState());
+		System.out.println("Pincode : " +cust.getAddr().getPincode());
+		
+		System.out.println("--------------PRODUCT---------------");
+		product prodarr[] = cust.getProd();
+		for(int i=0;i<prodarr.length;i++)
+		{
+		System.out.println("Product ID: "+prodarr[i].getProdId());
+		System.out.println("Product Name : "+prodarr[i].getProdName());
+		System.out.println("Product Price : "+prodarr[i].getProdPrice());
+		System.out.println("Product Qty :"+prodarr[i].getProdQty());
+		}
+		
+		System.out.println("-------------BILL-------------------");
+		System.out.println("Bill no. : "+billobj.getBillNo());
+		System.out.println("Date of purchase :  "+billobj.getDateobj());
+		System.out.println("cgst ; "+billobj.getCgst());
+		System.out.println("Sgst : "+billobj.getSgst());
+		System.out.println("Grand total : "+billobj.getFinaltotal());
+		System.out.println("----------THANK YOU ----------------");
+		System.out.println("----------DO VISIT AGAIN -----------");
+		
+		
+		
+	}
+	public Bill calculateBill(Customer cust)
+	{
+		product prodarr[] = cust.getProd();
+		double total = 0,cgst,sgst,finaltotal;
+		for(int i=0;i<prodarr.length;i++)
+		{
+			total = total+prodarr[i].getProdPrice()*prodarr[i].getProdQty();
+			
+		}
+		cgst = total*0.06;
+		sgst = total*0.06;
+		finaltotal = total + cgst + sgst;
+		Date dateobj = new Date();
+		
+		Bill billobj = new Bill(111, dateobj, cgst, sgst, finaltotal);
+		return billobj;
+		
+	}
+	
+
+}
+public class ShopMain {
+
+	public static void main(String[] args) {
+		ShopInfo sinfo = new ShopInfo();
+		Customer cust = sinfo.create();
+		Bill billobj = sinfo.calculateBill(cust);
+		sinfo.display(cust,billobj);
+
+	}
+
+}
