@@ -1,0 +1,171 @@
+public class Address {
+	private String city;
+	private String State;
+	private int pincode;
+	public Address(String city, String state, int pincode) {
+		super();
+		this.city = city;
+		State = state;
+		this.pincode = pincode;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return State;
+	}
+	public void setState(String state) {
+		State = state;
+	}
+	public int getPincode() {
+		return pincode;
+	}
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+	
+
+}
+public class Product {
+	private String prodName;
+	private int prodQty;
+	private double prodPrice;
+	public Product(String prodName, int prodQty, double prodPrice) {
+		super();
+		this.prodName = prodName;
+		this.prodQty = prodQty;
+		this.prodPrice = prodPrice;
+	}
+	public String getProdName() {
+		return prodName;
+	}
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+	public int getProdQty() {
+		return prodQty;
+	}
+	public void setProdQty(int prodQty) {
+		this.prodQty = prodQty;
+	}
+	public double getProdPrice() {
+		return prodPrice;
+	}
+	public void setProdPrice(double prodPrice) {
+		this.prodPrice = prodPrice;
+	}
+
+}
+public class customer {
+	private String custName;
+	private int custId;
+	private int custMobno;
+	private Product prod;
+	private Address Add;
+	public customer(String custName, int custId, int custMobno, Product prod, Address add) {
+		super();
+		this.custName = custName;
+		this.custId = custId;
+		this.custMobno = custMobno;
+		this.prod = prod;
+		Add = add;
+	}
+	public String getCustName() {
+		return custName;
+	}
+	public void setCustName(String custName) {
+		this.custName = custName;
+	}
+	public int getCustId() {
+		return custId;
+	}
+	public void setCustId(int custId) {
+		this.custId = custId;
+	}
+	public int getCustMobno() {
+		return custMobno;
+	}
+	public void setCustMobno(int custMobno) {
+		this.custMobno = custMobno;
+	}
+	public Product getProd() {
+		return prod;
+	}
+	public void setProd(Product prod) {
+		this.prod = prod;
+	}
+	public Address getAdd() {
+		return Add;
+	}
+	public void setAdd(Address add) {
+		Add = add;
+	}
+}
+import java.util.*;
+public class shopInfo {
+	public customer create() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the name of Customer = ");
+		String custName = sc.next();
+		System.out.println("Enter the Customer Id = ");
+		int custId = sc.nextInt();
+		System.out.println("Enter the customer number = ");
+		int custMobno = sc.nextInt();
+		
+		
+		System.out.println("Enter the name of the city = ");
+		String city = sc.next();
+		System.out.println("Enter the name of State = ");
+		String state = sc.next();
+		System.out.println("Enter the pincode = ");
+		int pincode = sc.nextInt();
+		
+		
+		System.out.println("Enter the Name of the product \t ");
+		String prodName = sc.next();
+		System.out.println("Enter the product quantity \t");
+		int prodQty = sc.nextInt();
+		System.out.println("Enter the price of product \t");
+		int prodPrice = sc.nextInt();
+		
+		
+		Address add = new Address(city, state, pincode);
+		Product prod = new Product(prodName, prodQty, prodPrice);
+		customer cust = new customer(custName, custId, custMobno, prod, add);
+		return cust;
+	}
+	public void display(customer cust) {
+		System.out.println("---------------CUSTOMER INFO----------------");
+		System.out.println("custName = "+cust.getCustName());
+		System.out.println("custId = "+cust.getCustId());
+		System.out.println("custMobno = "+cust.getCustMobno());
+		
+		System.out.println("--------------ADDRESS-----------------------");
+		System.out.println("city = "+cust.getAdd().getCity());
+		System.out.println("state = "+cust.getAdd().getState());
+		System.out.println("Pincode = "+cust.getAdd().getPincode());
+		
+		System.out.println("-------------PRODUCT-------------------------");
+		System.out.println("prodName = "+cust.getProd().getProdName());
+		System.out.println("prodQty = "+cust.getProd().getProdQty());
+		System.out.println("prodrice = "+cust.getProd().getProdPrice());
+		System.out.println("---------------------------------------------");
+		
+	}
+
+}
+public class ShopMain {
+
+	public static void main(String[] args) {
+		shopInfo sinfo = new shopInfo();
+		customer cust = sinfo.create();
+		sinfo.display(cust);
+	}
+
+}
+
+
+
